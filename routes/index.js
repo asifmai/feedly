@@ -4,8 +4,8 @@ const indexController = require('../controllers/indexcontroller');
 const feedlyController = require('../controllers/feedlycontroller');
 
 /* GET - Public - home page */
-router.get('/', indexController.index_get);
+router.get('/', feedlyController.callback_get);
 
-router.get('/feedlycallback', feedlyController.callback_get)
+router.post('/searchfeedly', feedlyController.searchfeedly_post)
 
 module.exports = router;

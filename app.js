@@ -5,16 +5,18 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const connectDb = require('./config/db');
+const connectRedis = require('./config/redis');
 
 // Connect to MongoDB
 connectDb();
+connectRedis();
 
 // Initialize App
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 // Log Routes
 app.use(logger('dev'));
